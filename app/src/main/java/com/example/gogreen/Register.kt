@@ -1,0 +1,117 @@
+package com.example.gogreen
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Patterns
+import android.view.View
+import android.widget.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
+class Register : AppCompatActivity() {
+    private lateinit var nameEditText: EditText
+    private lateinit var emailEditText: EditText
+    private lateinit var addressEditText: EditText
+    private lateinit var usernameEditText: EditText
+    private lateinit var gender: String
+    private lateinit var passwordEditText: EditText
+    private lateinit var confirmEditText: EditText
+    private lateinit var auth: FirebaseAuth
+    private lateinit var usersRef: DatabaseReference
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_register)
+        nameEditText = findViewById(R.id.editTextInput1)
+        emailEditText = findViewById(R.id.editTextInput2)
+        addressEditText = findViewById(R.id.editTextInput3)
+        usernameEditText = findViewById(R.id.editTextInput4)
+        gender = ""
+//        gender = findViewById(R.id.spinnerGender)
+        passwordEditText = findViewById(R.id.editTextInput6)
+        confirmEditText = findViewById(R.id.editTextInput7)
+        val submitButton: Button = findViewById(R.id.btn1)
+        val spinner = findViewById<Spinner>(R.id.spinnerGender)
+
+        val genderOptions = arrayOf("Select the gender","Male", "Female", "Others")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genderOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.setSelection(0)
+        var isGenderSelected = false
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
+                // Check if a valid selection (not the hint) is made
+                if (position != 0) {
+                    isGenderSelected = true
+                    gender = genderOptions[position] // Capture the selected gender
+                } else {
+                    isGenderSelected = false
+                    gender = "" // Reset gender when nothing is selected
+                }
+            }
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                Toast.makeText(this@Register, "Please select a gender", Toast.LENGTH_SHORT).show()
+            }
+        }
+        auth = FirebaseAuth.getInstance()
+
+
+        val database = FirebaseDatabase.getInstance()
+        usersRef = database.getReference("users")
+
+        submitButton.setOnClickListener {
+            val name = nameEditText.text.toString()
+            val email = emailEditText.text.toString()
+            val address = addressEditText.text.toString()
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            val confirmPassword = confirmEditText.text.toString()
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this@Register, "Invalid email address", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (!isGenderSelected) {
+                Toast.makeText(this@Register, "Please select a gender", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
+            if (password != confirmPassword) {
+                Toast.makeText(this@Register, "Password and confirm password do not match", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+
+                        val user = auth.currentUser
+                        val userId = user?.uid
+                        if (userId != null) {
+                            val userData = User(name, email, address, username, gender, password,false)
+                            usersRef.child(userId).setValue(userData)
+                            Toast.makeText(this@Register, "register successfully", Toast.LENGTH_SHORT).show()
+
+                            val intent = Intent(this@Register, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    } else {
+                        val errorMessage = task.exception?.message
+                        Toast.makeText(this@Register, "could not register", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+
+    }
+}
+
+
+
+
+

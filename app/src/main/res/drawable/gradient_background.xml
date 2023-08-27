@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/gradientStartColor" />
+    <item>
+
+        <shape>
+            <gradient
+                android:startColor="@color/gradientEndColor"
+                android:centerColor="@color/white"
+                android:endColor="@color/textcolour1"
+                android:angle="45"
+                />
+            <!-- Adjust the angle as needed -->
+        </shape>
+    </item>
+</layer-list>
