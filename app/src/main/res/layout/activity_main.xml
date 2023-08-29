@@ -79,6 +79,7 @@
         android:textColorHint="@color/hintColor"
         android:background="@drawable/input_box_background"
         android:padding="8dp"
+        android:inputType="textPassword"
         android:gravity="center"
         android:maxLines="1" />
     <androidx.appcompat.widget.AppCompatButton
