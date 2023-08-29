@@ -37,6 +37,7 @@
                 clickHereTextView.setOnClickListener {
                     val intent = Intent(this, RegisterScreen::class.java)
                     startActivity(intent)
+                    this.finish();
                 }
             }
 
@@ -67,6 +68,7 @@
                                                     AdminActivity::class.java
                                                 )
                                                 startActivity(intent)
+                                                finish();
                                             } else {
                                                 // User is not an admin, go to UsersActivity
                                                 val intent = Intent(
@@ -74,6 +76,7 @@
                                                     UsersActivity::class.java
                                                 )
                                                 startActivity(intent)
+                                                finish();
                                             }
                                         } else {
                                             Log.e("FirebaseDatabase", "User data does not exist")

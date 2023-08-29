@@ -8,4 +8,5 @@
     <string name="username">Username</string>
     <string name="welcome_to">Welcome to</string>
     <string name="welcome_user">Welcome, User!</string>
+    <string name="hello_blank_fragment">hello\n</string>
 </resources>
