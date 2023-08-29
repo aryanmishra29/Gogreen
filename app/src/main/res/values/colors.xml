@@ -13,9 +13,14 @@
     <color name="username">#606263</color>
     <color name="hintColor">#AAAAAA</color>
     <color name="inputbox">#E2F0F4</color>
-    <color name="outlinecolor">#145768</color>
+    <color name="outlinecolr">#145768</color>
     <color name="customButtonColor">#24CAF3</color>
     <color name="colorPrimary">#2196F3</color>
     <color name="colorSecondary">#ebdcca</color>
+
+
+
+
+
 
 </resources>

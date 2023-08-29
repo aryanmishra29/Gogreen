@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class Register : AppCompatActivity() {
+class RegisterScreen : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
     private lateinit var addressEditText: EditText
@@ -23,16 +23,16 @@ class Register : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
-        nameEditText = findViewById(R.id.editTextInput1)
-        emailEditText = findViewById(R.id.editTextInput2)
-        addressEditText = findViewById(R.id.editTextInput3)
-        usernameEditText = findViewById(R.id.editTextInput4)
+        setContentView(R.layout.activity_register_screen)
+        nameEditText = findViewById(R.id.fullNameEditText)
+        emailEditText = findViewById(R.id.registerEmailEditText)
+       // addressEditText = findViewById(R.id.)
+        usernameEditText = findViewById(R.id.registerUsernameEditText)
         gender = ""
 //        gender = findViewById(R.id.spinnerGender)
-        passwordEditText = findViewById(R.id.editTextInput6)
-        confirmEditText = findViewById(R.id.editTextInput7)
-        val submitButton: Button = findViewById(R.id.btn1)
+        passwordEditText = findViewById(R.id.registerPasswordEditText)
+        confirmEditText = findViewById(R.id.confirmPasswordEditText)
+        val submitButton: Button = findViewById(R.id.registerButton)
         val spinner = findViewById<Spinner>(R.id.spinnerGender)
 
         val genderOptions = arrayOf("Select the gender","Male", "Female", "Others")
@@ -53,7 +53,7 @@ class Register : AppCompatActivity() {
                 }
             }
             override fun onNothingSelected(parentView: AdapterView<*>?) {
-                Toast.makeText(this@Register, "Please select a gender", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegisterScreen, "Please select a gender", Toast.LENGTH_SHORT).show()
             }
         }
         auth = FirebaseAuth.getInstance()
@@ -70,17 +70,17 @@ class Register : AppCompatActivity() {
             val password = passwordEditText.text.toString()
             val confirmPassword = confirmEditText.text.toString()
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                Toast.makeText(this@Register, "Invalid email address", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegisterScreen, "Invalid email address", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (!isGenderSelected) {
-                Toast.makeText(this@Register, "Please select a gender", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegisterScreen, "Please select a gender", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
 
             if (password != confirmPassword) {
-                Toast.makeText(this@Register, "Password and confirm password do not match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegisterScreen, "Password and confirm password do not match", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -95,15 +95,15 @@ class Register : AppCompatActivity() {
                         if (userId != null) {
                             val userData = User(name, email, address, username, gender, password,false)
                             usersRef.child(userId).setValue(userData)
-                            Toast.makeText(this@Register, "register successfully", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RegisterScreen, "register successfully", Toast.LENGTH_SHORT).show()
 
-                            val intent = Intent(this@Register, MainActivity::class.java)
+                            val intent = Intent(this@RegisterScreen, LoginScreen::class.java)
                             startActivity(intent)
                             finish()
                         }
                     } else {
                         val errorMessage = task.exception?.message
-                        Toast.makeText(this@Register, "could not register", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@RegisterScreen, "could not register", Toast.LENGTH_SHORT).show()
                     }
                 }
         }

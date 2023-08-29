@@ -4,7 +4,6 @@
         import androidx.appcompat.app.AppCompatActivity
         import android.os.Bundle
         import android.util.Log
-        import android.view.View
         import android.widget.Button
         import android.widget.EditText
         import android.widget.TextView
@@ -14,20 +13,19 @@
         import com.google.firebase.database.DatabaseError
         import com.google.firebase.database.FirebaseDatabase
         import com.google.firebase.database.ValueEventListener
-        import com.google.firebase.firestore.FirebaseFirestore
 
-        class MainActivity : AppCompatActivity() {
+        class LoginScreen : AppCompatActivity() {
             private lateinit var usernameEditText: EditText
             private lateinit var passwordEditText: EditText
 
             override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
-                setContentView(R.layout.activity_main)
+                setContentView(R.layout.activity_login_screen)
 
-                val clickHereTextView = findViewById<TextView>(R.id.text5)
-                usernameEditText = findViewById(R.id.editTextInput1)
-                passwordEditText = findViewById(R.id.editTextInput2)
-                val loginButton: Button = findViewById(R.id.btn1)
+                val clickHereTextView = findViewById<TextView>(R.id.createAccountTextView)
+                usernameEditText = findViewById(R.id.usernameEditText)
+                passwordEditText = findViewById(R.id.passwordEditText)
+                val loginButton: Button = findViewById(R.id.loginButton)
 
                 loginButton.setOnClickListener {
                     val username = usernameEditText.text.toString()
@@ -37,7 +35,7 @@
                 }
 
                 clickHereTextView.setOnClickListener {
-                    val intent = Intent(this@MainActivity, Register::class.java)
+                    val intent = Intent(this, RegisterScreen::class.java)
                     startActivity(intent)
                 }
             }
@@ -65,14 +63,14 @@
                                             if (isAdmin == true) {
                                                 // User is an admin, go to AdminActivity
                                                 val intent = Intent(
-                                                    this@MainActivity,
+                                                    this@LoginScreen,
                                                     AdminActivity::class.java
                                                 )
                                                 startActivity(intent)
                                             } else {
                                                 // User is not an admin, go to UsersActivity
                                                 val intent = Intent(
-                                                    this@MainActivity,
+                                                    this@LoginScreen,
                                                     UsersActivity::class.java
                                                 )
                                                 startActivity(intent)
