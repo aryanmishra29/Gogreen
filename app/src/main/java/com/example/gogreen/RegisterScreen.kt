@@ -99,7 +99,7 @@ class RegisterScreen : AppCompatActivity() {
 
                             val intent = Intent(this@RegisterScreen, LoginScreen::class.java)
                             startActivity(intent)
-                            finish()
+                            this.finish();
                         }
                     } else {
                         val errorMessage = task.exception?.message
