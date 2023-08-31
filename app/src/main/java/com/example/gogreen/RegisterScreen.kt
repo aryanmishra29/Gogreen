@@ -63,6 +63,9 @@ class RegisterScreen : AppCompatActivity() {
         usersRef = database.getReference("users")
 
         submitButton.setOnClickListener {
+            val intent = Intent(this@RegisterScreen, AdminActivity::class.java)
+            startActivity(intent)
+            this.finish();
             val name = nameEditText.text.toString()
             val email = emailEditText.text.toString()
             val address = addressEditText.text.toString()
