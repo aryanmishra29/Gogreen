@@ -2,6 +2,7 @@ package com.example.gogreen
 
 import android.app.Application
 import com.google.firebase.FirebaseApp
+import com.google.firebase.ktx.Firebase
 
 class myapplication : Application() {
     override fun onCreate() {

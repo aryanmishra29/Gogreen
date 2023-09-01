@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.example.gogreen.R
 import com.example.gogreen.admin_Adapter.CategoryAdapter
 import com.example.gogreen.admin_Model.category_Model
 import com.example.gogreen.databinding.FragmentCategoryAdminBinding
+import com.google.android.play.core.integrity.e
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -127,17 +129,24 @@ class Category_adminFragment : Fragment() {
               //  getData()
                 Toast.makeText(requireContext(), "category updated", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener {
+            .addOnFailureListener { e ->
                 dialog.dismiss()
-                Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
+                Log.e("FirebaseError", "Error adding category", e)
+                Toast.makeText(
+                    requireContext(),
+                    "Something went wrong: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+        }
 
 
-            }
+    }
 
     }
 
 
-}
+
 
 
 
