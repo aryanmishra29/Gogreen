@@ -17,22 +17,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.125"
-        app:srcCompat="@drawable/vector" />
+        app:srcCompat="@drawable/vector"
+        tools:ignore="ContentDescription" />
 
-    <com.google.android.material.textfield.TextInputLayout
 
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/categry"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Categry name" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Categry name"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_semibold"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_bg"
+            tools:ignore="HardcodedText" />
+
 
 
     <Button
@@ -41,9 +45,12 @@
         android:layout_height="0dp"
         android:layout_marginTop="112dp"
         android:text="Upload"
+
+        android:background="@drawable/gradient_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="HardcodedText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categry_recycler"

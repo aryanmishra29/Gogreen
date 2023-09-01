@@ -33,55 +33,67 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <com.google.android.material.textfield.TextInputEditText
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/Productname"
-                    android:background="@drawable/gradient_button"
-
+                    android:background="@drawable/edit_text_bg"
                     android:layout_margin="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Product name"
-                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:textSize="15sp"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:padding="10dp"
+                    android:hint="Product Name"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Productdesc"
-                    android:background="@drawable/gradient_button"
-
-                    android:layout_margin="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Product desc" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/Productdesc"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Product desc"
+                android:padding="12dp"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:background="@drawable/gradient_button"
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/Productprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Product price"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
-                    android:layout_margin="20dp"
-                    android:id="@+id/Productprice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Product price" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-
-           <Spinner
-               android:id="@+id/addProductDropdown"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_margin="10dp"/>
+            <Spinner
+                android:id="@+id/addProductDropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorSecondaryDark"
+                android:fontFamily="@font/montserrat_semibold"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:textSize="15sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/selectcoverimg"
@@ -95,7 +107,7 @@
                 android:text="select cover image"
                 android:textColor="@color/colorSecondary"
                 android:textSize="20sp"
-                tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+                tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
 
             <ImageView
                 android:layout_width="200dp"
@@ -103,7 +115,8 @@
                 android:visibility="gone"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:id="@+id/product_cover_img"/>
+                android:id="@+id/product_cover_img"
+                tools:ignore="ContentDescription" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/prod_imgButton"
@@ -117,18 +130,18 @@
                 android:text="select image"
                 android:textColor="@color/colorSecondary"
                 android:textSize="20sp"
-                tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+                tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/product_img_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                tools:listitem="@layout/image_item"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:ignore="SpeakableTextPresentCheck"
 
-                />
+                tools:listitem="@layout/image_item" />
 
 
             <androidx.appcompat.widget.AppCompatButton
@@ -143,7 +156,7 @@
                 android:text="Add product"
                 android:textColor="@color/colorSecondary"
                 android:textSize="20sp"
-                tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+                tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
         </LinearLayout>
     </ScrollView>
 
