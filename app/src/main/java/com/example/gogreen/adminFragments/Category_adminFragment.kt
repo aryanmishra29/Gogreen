@@ -48,7 +48,7 @@ class Category_adminFragment : Fragment() {
         dialog.setCancelable(false)
 
 
-      //  getData()
+        getData()
 
         binding.apply {
             imageView.setOnClickListener {
@@ -67,7 +67,7 @@ class Category_adminFragment : Fragment() {
     }
 
 
-  /*  private fun getData() {
+    private fun getData() {
         val list = ArrayList<category_Model>()
         Firebase.firestore.collection("cate")
             .get().addOnSuccessListener {
@@ -78,7 +78,7 @@ class Category_adminFragment : Fragment() {
                 }
                 binding.categryRecycler.adapter= CategoryAdapter(requireContext(),list)
             }
-    }*/
+    }
 
     private fun validateData(categry:String) {
         if (categry.isEmpty()) {
@@ -126,7 +126,7 @@ class Category_adminFragment : Fragment() {
                 dialog.dismiss()
                 binding.imageView.setImageDrawable(resources.getDrawable(R.drawable.vector))
                 binding.categry.text = null
-              //  getData()
+                getData()
                 Toast.makeText(requireContext(), "categry updated", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
