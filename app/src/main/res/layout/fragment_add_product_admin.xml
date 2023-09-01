@@ -121,8 +121,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-            android:orientation="horizontal"
-                android:layout_margin="10dp"
+                 android:orientation="horizontal"
+                android:layout_margin="5dp"
+                tools:listitem="@layout/image_item"
                 android:id="@+id/product_img_recyclerview"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
