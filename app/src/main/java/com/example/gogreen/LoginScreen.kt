@@ -8,6 +8,7 @@
         import android.widget.EditText
         import android.widget.TextView
         import android.widget.Toast
+        import androidx.core.content.ContextCompat.startActivity
         import com.google.firebase.auth.FirebaseAuth
         import com.google.firebase.database.DataSnapshot
         import com.google.firebase.database.DatabaseError
@@ -25,10 +26,10 @@
                 val clickHereTextView = findViewById<TextView>(R.id.createAccountTextView)
                 usernameEditText = findViewById(R.id.usernameEditText)
                 passwordEditText = findViewById(R.id.passwordEditText)
-                val loginButton: Button = findViewById(R.id.loginButton)
+                val loginButton:Button = findViewById(R.id.loginButton)
 
                 loginButton.setOnClickListener {
-                    val username = usernameEditText.text.toString()
+                      val username = usernameEditText.text.toString()
                     val password = passwordEditText.text.toString()
 
                     if (username.isNotEmpty() && password.isNotEmpty()) {
@@ -44,6 +45,8 @@
                     finish()
                 }
             }
+
+
 
             private fun isValidLogin(username: String, password: String) {
                 val auth = FirebaseAuth.getInstance()
