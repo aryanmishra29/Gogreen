@@ -14,7 +14,7 @@
         import com.google.firebase.database.FirebaseDatabase
         import com.google.firebase.database.ValueEventListener
 
-        class LoginScreen : AppCompatActivity() {
+        class   LoginScreen : AppCompatActivity() {
             private lateinit var usernameEditText: EditText
             private lateinit var passwordEditText: EditText
 
