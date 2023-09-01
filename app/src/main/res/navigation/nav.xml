@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_home_adminFragment_to_product_adminFragment"
             app:destination="@id/product_adminFragment" />
+        <action
+            android:id="@+id/action_home_adminFragment_to_slider_admin_Fragment"
+            app:destination="@id/slider_admin_Fragment" />
     </fragment>
     <fragment
         android:id="@+id/category_adminFragment"
@@ -36,4 +39,9 @@
         android:name="com.example.gogreen.adminFragments.addProduct_adminFragment"
         android:label="fragment_add_product_admin"
         tools:layout="@layout/fragment_add_product_admin" />
+    <fragment
+        android:id="@+id/slider_admin_Fragment"
+        android:name="com.example.gogreen.adminFragments.slider_admin_Fragment"
+        android:label="fragment_slider_admin_"
+        tools:layout="@layout/fragment_slider_admin_" />
 </navigation>

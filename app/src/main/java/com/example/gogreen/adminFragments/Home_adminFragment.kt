@@ -30,6 +30,9 @@ class Home_adminFragment : Fragment() {
         binding.addprodButton.setOnClickListener {
             findNavController().navigate(R.id.action_home_adminFragment_to_product_adminFragment)
         }
+       binding.addsliderButton.setOnClickListener{
+            findNavController().navigate(R.id.action_home_adminFragment_to_slider_admin_Fragment)
+        }
 
 
         return binding.root
