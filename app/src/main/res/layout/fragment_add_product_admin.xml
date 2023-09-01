@@ -78,6 +78,7 @@
 
 
            <Spinner
+               android:id="@+id/addProductDropdown"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_margin="10dp"/>
@@ -119,13 +120,16 @@
                 tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/product_img_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                 android:orientation="horizontal"
                 android:layout_margin="5dp"
                 tools:listitem="@layout/image_item"
-                android:id="@+id/product_img_recyclerview"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+
+                />
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/submitButton"
