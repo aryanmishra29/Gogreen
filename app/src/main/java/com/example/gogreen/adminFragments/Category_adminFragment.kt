@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.gogreen.Category
 import com.example.gogreen.R
 import com.example.gogreen.admin_Adapter.CategoryAdapter
 import com.example.gogreen.admin_Model.category_Model
@@ -117,17 +118,14 @@ class Category_adminFragment : Fragment() {
 
     private fun storeData(categry:String, Url:String) {
         val db = Firebase.firestore
-        val data = hashMapOf<String, Any>(
-            "cate" to categry,
-            "image" to Url
-        )
+        val data = Category(categry, Url)
         db.collection("cate").add(data)
             .addOnSuccessListener {
                 dialog.dismiss()
                 binding.imageView.setImageDrawable(resources.getDrawable(R.drawable.vector))
                 binding.categry.text = null
               //  getData()
-                Toast.makeText(requireContext(), "categry updated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "category updated", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 dialog.dismiss()
