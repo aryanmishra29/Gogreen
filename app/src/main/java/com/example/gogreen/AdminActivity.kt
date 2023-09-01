@@ -8,7 +8,7 @@
     class AdminActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_admin)
+            setContentView(R.layout.activity_admin_activity)
         }
     }
             // Set the HomeFragment as the initial fragment

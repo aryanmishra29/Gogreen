@@ -29,9 +29,7 @@
         <activity
             android:name=".LoginScreen"
             android:exported="true"/>
-        <activity
-            android:name=".UsersActivity"
-            android:exported="true"/>
+
         <activity
             android:name=".AdminActivity"
             android:exported="true">
