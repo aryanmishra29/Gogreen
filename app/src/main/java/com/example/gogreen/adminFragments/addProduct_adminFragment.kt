@@ -1,32 +1,62 @@
 package com.example.gogreen.adminFragments
 
+import android.app.Activity
+import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.example.gogreen.Category
 import com.example.gogreen.R
+import com.example.gogreen.admin_Adapter.CategoryAdapter
+import com.example.gogreen.admin_Adapter.addProductImageAdapter
+import com.example.gogreen.admin_Model.addProductModel
+import com.example.gogreen.admin_Model.category_Model
+import com.example.gogreen.databinding.FragmentAddProductAdminBinding
+import com.example.gogreen.databinding.FragmentProductAdminBinding
+import com.example.gogreen.databinding.ImageItemBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.util.*
+import kotlin.collections.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [addProduct_adminFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class addProduct_adminFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1:String? = null
-    private var param2:String? = null
+     private lateinit var binding:FragmentAddProductAdminBinding
+     private lateinit var list:ArrayList<Uri>
+    private lateinit var listImages:ArrayList<String>
+    private lateinit var adapter :addProductImageAdapter
+    private var coverImage : Uri?= null
+    private lateinit var dialog:Dialog
+    private lateinit var categoryList : ArrayList<String>
+    private var coverImgUrl :String?=null
 
-    override fun onCreate(savedInstanceState:Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var launchGalleryActivity = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            coverImage = it.data!!.data
+            binding.productCoverImg.setImageURI(coverImage)
+            binding.productCoverImg.visibility =  VISIBLE
+        }
+    }
+    private var launchProductActivity = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            val imageUrl = it.data!!.data
+            list.add(imageUrl!!)
+            adapter.notifyDataSetChanged()
         }
     }
 
@@ -34,27 +64,149 @@ class addProduct_adminFragment : Fragment() {
         inflater:LayoutInflater, container:ViewGroup?,
         savedInstanceState:Bundle?,
     ):View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_product_admin, container, false)
+        binding = FragmentAddProductAdminBinding.inflate(layoutInflater)
+
+
+        list = ArrayList()
+        listImages = ArrayList()
+        dialog = Dialog(requireContext())
+        dialog.setContentView(R.layout.prgress_layout)
+        dialog.setCancelable(false)
+
+       binding.selectcoverimg.setOnClickListener {
+              val intent = Intent("android.intent.action.GET_CONTENT")
+                intent.type = "image/*"
+                launchGalleryActivity.launch(intent)
+        }
+        binding.prodImgButton.setOnClickListener {
+            val intent = Intent("android.intent.action.GET_CONTENT")
+            intent.type = "image/*"
+            launchProductActivity.launch(intent)
+        }
+        adapter =addProductImageAdapter(list)
+        binding.productImgRecyclerView.adapter = adapter
+
+        binding.submitButton.setOnClickListener{
+            validateData()
+        }
+
+        setProductrCategory()
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment addProduct_adminFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1:String, param2:String) =
-            addProduct_adminFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun validateData() {
+       if (binding.Productname.text.toString().isEmpty()){
+           binding.Productname.requestFocus()
+           binding.Productname.error= "Empty"
+       }else if (binding.Productprice.text.toString().isEmpty()){
+           binding.Productprice.error = "Empty"
+       }else if (coverImage== null){
+           Toast.makeText(requireContext(),"Please select cover image",Toast.LENGTH_SHORT).show()
+       }else if (list.size<1){
+           Toast.makeText(requireContext(),"please relect product images",Toast.LENGTH_SHORT).show()
+       }else{
+           uploadImage()
+       }
+    }
+
+    private fun uploadImage() {
+        dialog.show()
+
+        val fileName = UUID.randomUUID().toString() + ".jpg"
+
+        val refStorage = FirebaseStorage.getInstance().reference.child("Products/$fileName")
+        refStorage.putFile(coverImage!!)
+            .addOnSuccessListener {
+                it.storage.downloadUrl.addOnSuccessListener { image ->
+                coverImgUrl = image.toString()
+                    uploadProductImage()
                 }
             }
+            .addOnFailureListener {
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
+
+
+            }
     }
-}
+     private var i =0
+    private fun uploadProductImage() {
+        dialog.show()
+
+        val fileName = UUID.randomUUID().toString() + ".jpg"
+
+        val refStorage = FirebaseStorage.getInstance().reference.child("Products/$fileName")
+        refStorage.putFile(list[i])
+            .addOnSuccessListener {
+                it.storage.downloadUrl.addOnSuccessListener { image ->
+                    listImages.add(image!!.toString())
+                    if(list.size == listImages.size){
+                        storeData()
+                    }else{
+                        i++
+                        uploadProductImage()
+                    }
+                }
+            }
+            .addOnFailureListener {
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+    }
+
+    private fun storeData() {
+        val db = Firebase.firestore.collection("Products")
+                val key = db.id
+
+               val data = addProductModel(
+                 binding.Productname.text.toString(),
+                 binding.Productdesc.text.toString(),
+                 coverImgUrl.toString(),
+                 categoryList[binding.addProductDropdown.selectedItemPosition],
+                 key,
+                 binding.Productprice.text.toString(),
+                 listImages
+               )
+                 db.document(key).set(data).addOnSuccessListener {
+                dialog.dismiss()
+
+                Toast.makeText(requireContext(), "Product added", Toast.LENGTH_SHORT).show()
+                     binding.Productname.text = null
+            }
+            .addOnFailureListener { e ->
+                dialog.dismiss()
+                Log.e("FirebaseError", "Error adding category", e)
+                Toast.makeText(
+                    requireContext(),
+                    "Something went wrong: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            }
+
+
+    }
+
+
+
+    private fun setProductrCategory(){
+           categoryList = ArrayList()
+           Firebase.firestore.collection("cate")
+               .get().addOnSuccessListener {
+                 categoryList.clear()
+                   for (doc in it.documents){
+                       val data = doc.toObject(category_Model::class.java)
+                       categoryList.add(data!!.cate!!)
+                   }
+                   categoryList.add(0,"Select category")
+
+                   val arrayAdapter = ArrayAdapter(requireContext(),R.layout.dropdown_item,categoryList)
+                   binding.addProductDropdown.adapter = arrayAdapter
+
+               }
+       }
+
+    }
