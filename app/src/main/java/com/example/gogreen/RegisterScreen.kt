@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 class RegisterScreen : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
-    private lateinit var addressEditText: EditText
+   // private lateinit var addressEditText: EditText
     private lateinit var usernameEditText: EditText
     private lateinit var gender: String
     private lateinit var passwordEditText: EditText
@@ -63,12 +63,9 @@ class RegisterScreen : AppCompatActivity() {
         usersRef = database.getReference("users")
 
         submitButton.setOnClickListener {
-            val intent = Intent(this@RegisterScreen, AdminActivity::class.java)
-            startActivity(intent)
-            this.finish();
             val name = nameEditText.text.toString()
             val email = emailEditText.text.toString()
-            val address = addressEditText.text.toString()
+            //val address = addressEditText.text.toString()
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
             val confirmPassword = confirmEditText.text.toString()
@@ -96,16 +93,17 @@ class RegisterScreen : AppCompatActivity() {
                         val user = auth.currentUser
                         val userId = user?.uid
                         if (userId != null) {
-                            val userData = User(name, email, address, username, gender, password,false)
+                            val userData = User(name, email,
+                                "", username, gender, password,false)
                             usersRef.child(userId).setValue(userData)
                             Toast.makeText(this@RegisterScreen, "register successfully", Toast.LENGTH_SHORT).show()
 
                             val intent = Intent(this@RegisterScreen, LoginScreen::class.java)
                             startActivity(intent)
-                            this.finish();
+                            this.finish()
                         }
                     } else {
-                        val errorMessage = task.exception?.message
+                        //val errorMessage = task.exception?.message
                         Toast.makeText(this@RegisterScreen, "could not register", Toast.LENGTH_SHORT).show()
                     }
                 }

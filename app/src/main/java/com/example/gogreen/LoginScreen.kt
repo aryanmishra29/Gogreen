@@ -30,14 +30,18 @@
                 loginButton.setOnClickListener {
                     val username = usernameEditText.text.toString()
                     val password = passwordEditText.text.toString()
-                    isValidLogin(username, password)
 
+                    if (username.isNotEmpty() && password.isNotEmpty()) {
+                        isValidLogin(username, password)
+                    } else {
+                        showToast("Please enter username and password.")
+                    }
                 }
 
                 clickHereTextView.setOnClickListener {
                     val intent = Intent(this, RegisterScreen::class.java)
                     startActivity(intent)
-                    this.finish();
+                    finish()
                 }
             }
 
@@ -68,7 +72,7 @@
                                                     AdminActivity::class.java
                                                 )
                                                 startActivity(intent)
-                                                finish();
+                                                finish()
                                             } else {
                                                 // User is not an admin, go to UsersActivity
                                                 val intent = Intent(
@@ -76,7 +80,7 @@
                                                     UsersActivity::class.java
                                                 )
                                                 startActivity(intent)
-                                                finish();
+                                                finish()
                                             }
                                         } else {
                                             Log.e("FirebaseDatabase", "User data does not exist")

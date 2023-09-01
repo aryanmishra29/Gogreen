@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/app_bar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,13 +26,15 @@
 
                 <ImageView
                     android:id="@+id/profile"
-                    android:layout_width="50dp"
-                    android:layout_height="60dp"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/person"
                     app:layout_constraintBottom_toBottomOf="@+id/app_name"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/app_name"
@@ -42,33 +44,36 @@
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="GoGreen"
                     android:textColor="@color/white"
-                    android:textSize="50sp"
+                    android:textSize="30sp"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.581"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/searchEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="40dp"
                     android:layout_marginStart="22dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginEnd="22dp"
-                    android:drawableLeft="@drawable/ic_search"
+                    android:layout_marginBottom="25dp"
                     android:background="@drawable/edit_text_bg2"
-                    android:padding="10dp"
-                    android:hint="Search"
-                    android:textColorHint="@color/colorPrimary"
+                    android:drawableStart="@drawable/ic_search"
                     android:fontFamily="@font/montserrat_semibold"
+                    android:hint="Search"
+                    android:padding="10dp"
+                    android:textColorHint="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/app_name" />
+                    app:layout_constraintTop_toBottomOf="@id/app_name"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/menucardView"
@@ -94,10 +99,10 @@
                     android:elevation="20dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/advicetxt"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:padding="5dp"
                         android:textColor="@color/colorPrimary"
                         android:fontFamily="@font/montserrat_semibold"
@@ -114,10 +119,10 @@
                     android:elevation="20dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/_txt"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:padding="5dp"
                         android:textColor="@color/colorPrimary"
                         android:fontFamily="@font/montserrat_semibold"
@@ -133,10 +138,10 @@
                     android:elevation="20dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/__txt"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:padding="5dp"
                         android:textColor="@color/colorPrimary"
                         android:fontFamily="@font/montserrat_semibold"
