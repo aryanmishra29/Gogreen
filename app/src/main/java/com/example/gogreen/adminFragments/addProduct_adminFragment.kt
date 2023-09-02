@@ -154,7 +154,7 @@ class addProduct_adminFragment : Fragment() {
 
     private fun storeData() {
         val db = Firebase.firestore.collection("Products")
-                val key = db.id
+                val key = db.document().id
 
                   val data = addProductModel(
                  binding.Productname.text.toString(),
