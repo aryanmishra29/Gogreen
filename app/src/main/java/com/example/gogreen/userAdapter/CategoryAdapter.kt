@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.gogreen.User_Activity.Category_user_Activity
 import com.example.gogreen.admin_Model.category_Model
 import com.example.gogreen.databinding.LayoutCategoryUserItemBinding
 
@@ -29,7 +30,7 @@ RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
           Glide.with(context).load(list[position].image).into(holder.binding.imageView)
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context,Category_user_Activity::class.java)
+           val intent = Intent(context,Category_user_Activity::class.java)
             intent.putExtra("cate",list[position].cate)
             context.startActivity(intent)
         }

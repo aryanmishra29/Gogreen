@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#198BE6"
     android:gravity="center"
-    tools:context=".SplashScreen">
+    tools:context=".Login_Register.SplashScreen">
 
     <ImageView
         android:id="@+id/logo"
