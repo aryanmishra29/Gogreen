@@ -12,6 +12,7 @@ import com.example.gogreen.databinding.ActivityProductDetailBinding
 import com.example.gogreen.roomdb.AppDatabase
 import com.example.gogreen.roomdb.ProductDao
 import com.example.gogreen.roomdb.ProductModel
+import com.example.gogreen.userFragments.CartFragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
@@ -23,13 +24,13 @@ class ProductDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityProductDetailBinding.inflate(layoutInflater)
-      //  getProductDetails(intent.getStringExtra("id"))
+        getProductDetails(intent.getStringExtra("id"))
         setContentView(binding.root)
 
 
     }
 
-   /* private fun getProductDetails(proId:String?) {
+    private fun getProductDetails(proId:String?) {
 
         Firebase.firestore.collection("Products")
             .document(proId!!).get().addOnSuccessListener {
@@ -97,7 +98,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
         startActivity(Intent(this, UsersActivity::class.java))
         finish()
-    }*/
+    }
 
 }
 

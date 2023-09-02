@@ -18,7 +18,7 @@ interface ProductDao {
     @Query("SELECT * FROM products")
     fun getAllProducts():LiveData<List<ProductModel>>
 
-    @Query("SELECT * FROM products WHERE productId = :id")
+    @Query("SELECT * FROM products WHERE productID = :id")
     fun isExit(id: String): ProductModel
 
 
