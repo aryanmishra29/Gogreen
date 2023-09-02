@@ -5,10 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.codebyashish.autoimageslider.Enums.ImageAnimationTypes
 import com.codebyashish.autoimageslider.Enums.ImageScaleType
 import com.codebyashish.autoimageslider.Models.ImageSlidesModel
-import com.example.gogreen.admin_Adapter.addProductImageAdapter
+import com.example.gogreen.R
+
 import com.example.gogreen.admin_Model.category_Model
 import com.example.gogreen.databinding.FragmentHomeBinding
 import com.example.gogreen.userAdapter.CategoryAdapter
@@ -16,7 +20,7 @@ import com.example.gogreen.userAdapter.ProductuserAdapter
 import com.example.gogreen.user_Model.addProductuserModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import org.checkerframework.checker.units.qual.C
+
 
 
 class HomeFragment : Fragment() {
@@ -30,6 +34,13 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         getCategories()
         getProducts()
+
+
+     /* val preferences = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
+        if (preferences.getBoolean("isCart",false))
+            findNavController().navigate(R.id.action_homeFragment_to_cartFragment)*/
+
+
         val autoImageSlider = binding.slider
         val autoImageList : ArrayList<ImageSlidesModel> = ArrayList()
 
@@ -69,5 +80,6 @@ class HomeFragment : Fragment() {
             }
     }
 
+    }
 
-}
+
