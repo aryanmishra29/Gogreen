@@ -1,8 +1,11 @@
-package com.example.gogreen
+package com.example.gogreen.User_Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.gogreen.CartFragment
+import com.example.gogreen.ProfileFragment
+import com.example.gogreen.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 @Suppress("DEPRECATION")

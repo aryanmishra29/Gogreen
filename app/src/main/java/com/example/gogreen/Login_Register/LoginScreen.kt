@@ -1,4 +1,4 @@
-        package com.example.gogreen
+        package com.example.gogreen.Login_Register
 
         import android.content.Intent
         import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,9 @@
         import android.widget.EditText
         import android.widget.TextView
         import android.widget.Toast
-        import androidx.core.content.ContextCompat.startActivity
+        import com.example.gogreen.AdminActivity
+        import com.example.gogreen.R
+        import com.example.gogreen.User_Activity.UsersActivity
         import com.google.firebase.auth.FirebaseAuth
         import com.google.firebase.database.DataSnapshot
         import com.google.firebase.database.DatabaseError

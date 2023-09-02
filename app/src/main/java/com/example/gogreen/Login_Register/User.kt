@@ -1,4 +1,4 @@
-package com.example.gogreen
+package com.example.gogreen.Login_Register
 
 data class User(
     val name: String,
