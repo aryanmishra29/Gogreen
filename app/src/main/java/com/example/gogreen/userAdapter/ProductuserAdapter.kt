@@ -29,6 +29,7 @@ class ProductuserAdapter(val context:Context, val list: ArrayList<addProductuser
         holder.binding.textView2.text = data.productName
         holder.binding.textView3.text = data.productCategory
         holder.binding.button.text = data.productPrice
+       // holder.binding.button2.text = data.p
 
       /*  holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetailsActivity::class.java)

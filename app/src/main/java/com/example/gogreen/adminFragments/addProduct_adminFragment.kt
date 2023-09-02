@@ -103,7 +103,7 @@ class addProduct_adminFragment : Fragment() {
        }else if (coverImage== null){
            Toast.makeText(requireContext(),"Please select cover image",Toast.LENGTH_SHORT).show()
        }else if (list.size<1){
-           Toast.makeText(requireContext(),"please relect product images",Toast.LENGTH_SHORT).show()
+           Toast.makeText(requireContext(),"please select product images",Toast.LENGTH_SHORT).show()
        }else{
            uploadImage()
        }
@@ -161,14 +161,14 @@ class addProduct_adminFragment : Fragment() {
         val db = Firebase.firestore.collection("Products")
                 val key = db.id
 
-               val data = addProductModel(
+                  val data = addProductModel(
                  binding.Productname.text.toString(),
                  binding.Productdesc.text.toString(),
-                 coverImgUrl.toString(),
-                 categoryList[binding.addProductDropdown.selectedItemPosition],
-                 key,
-                 binding.Productprice.text.toString(),
-                 listImages
+                   coverImgUrl.toString(),
+                   categoryList[binding.addProductDropdown.selectedItemPosition],
+                     key,
+                   binding.Productprice.text.toString(),
+                   listImages
                )
                  db.document(key).set(data).addOnSuccessListener {
                 dialog.dismiss()
