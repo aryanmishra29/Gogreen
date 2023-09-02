@@ -36,9 +36,9 @@ class HomeFragment : Fragment() {
         getProducts()
 
 
-       val preferences = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
+     /*  val preferences = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
         if (preferences.getBoolean("isCart",false))
-            findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_cartFragment)*/
 
 
         val autoImageSlider = binding.slider
