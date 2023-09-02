@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.codebyashish.autoimageslider.Enums.ImageAnimationTypes
+import com.codebyashish.autoimageslider.Enums.ImageScaleType
+import com.codebyashish.autoimageslider.Models.ImageSlidesModel
 import com.example.gogreen.admin_Adapter.addProductImageAdapter
 import com.example.gogreen.admin_Model.category_Model
 import com.example.gogreen.databinding.FragmentHomeBinding
@@ -27,6 +30,17 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         getCategories()
         getProducts()
+        val autoImageSlider = binding.slider
+        val autoImageList : ArrayList<ImageSlidesModel> = ArrayList()
+
+        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/237/200/300", "First image"))
+        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/238/200/300", ""))
+        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/239/200/300", "Third image"))
+
+        autoImageSlider.setImageList(autoImageList, ImageScaleType.FIT)
+
+        autoImageSlider.setSlideAnimation(ImageAnimationTypes.DEPTH_SLIDE)
+
         return binding.root
     }
     private fun getProducts() {

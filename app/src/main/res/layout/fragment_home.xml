@@ -101,13 +101,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.denzcoskun.imageslider.ImageSlider
+                    <com.codebyashish.autoimageslider.AutoImageSlider
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        app:iss_auto_cycle="true"
-                        app:iss_delay="1000"
-                        app:iss_period="2000"
-                        app:iss_title_background="@color/colorSecondary"/>
+                        app:ais_auto_sliding="true"
+                        android:id="@+id/slider"
+                        app:ais_dots_visible="true"
+                        app:ais_time_interval="2000"
+                        app:ais_title_background="@color/colorSecondary"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
