@@ -1,9 +1,10 @@
-package com.example.gogreen
+package com.example.gogreen.User_Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gogreen.R
 import com.example.gogreen.userAdapter.ProductuserAdapter
 import com.example.gogreen.user_Model.addProductuserModel
 import com.google.firebase.firestore.ktx.firestore

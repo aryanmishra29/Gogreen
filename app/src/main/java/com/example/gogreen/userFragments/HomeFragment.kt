@@ -1,4 +1,4 @@
-package com.example.gogreen
+package com.example.gogreen.userFragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
