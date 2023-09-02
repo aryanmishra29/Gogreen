@@ -1,5 +1,6 @@
 package com.example.gogreen.userAdapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -25,11 +26,12 @@ class CartAdapter(val context: Context, val list: List<ProductModel>) :
         return CartViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder:CartViewHolder, position:Int) {
         Glide.with(context).load(list[position].productImage).into(holder.binding.imageView4)
 
         holder.binding.textView11.text = list[position].productName
-        holder.binding.textView12.text = list[position].productprice
+        holder.binding.textView12.text = "₹"+list[position].productprice
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetailActivity::class.java)

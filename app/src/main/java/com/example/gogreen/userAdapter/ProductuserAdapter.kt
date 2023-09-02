@@ -1,5 +1,6 @@
 package com.example.gogreen.userAdapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ class ProductuserAdapter(val context:Context, val list: ArrayList<addProductuser
         return ProductViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val data = list[position]
 
@@ -29,7 +31,7 @@ class ProductuserAdapter(val context:Context, val list: ArrayList<addProductuser
 
         holder.binding.textView2.text = data.productName
         holder.binding.textView3.text = data.productCategory
-        holder.binding.button.text = data.productPrice
+        holder.binding.button.text = "₹"+data.productPrice
        // holder.binding.button2.text = data.p
 
         holder.itemView.setOnClickListener {

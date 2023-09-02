@@ -38,8 +38,8 @@ class RegisterScreen : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinnerGender)
 
         val genderOptions = arrayOf("Select the gender","Male", "Female", "Others")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genderOptions)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapter = ArrayAdapter(this, R.layout.spinner_item, genderOptions)
+        adapter.setDropDownViewResource(R.layout.dropdown_item)
         spinner.adapter = adapter
         spinner.setSelection(0)
         var isGenderSelected = false

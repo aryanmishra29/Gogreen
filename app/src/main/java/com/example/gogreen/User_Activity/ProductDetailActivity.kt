@@ -1,12 +1,14 @@
 package com.example.gogreen.User_Activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.models.SlideModel
+import com.codebyashish.autoimageslider.Enums.ImageAnimationTypes
+import com.codebyashish.autoimageslider.Enums.ImageScaleType
+import com.codebyashish.autoimageslider.Models.ImageSlidesModel
 import com.example.gogreen.R
 import com.example.gogreen.databinding.ActivityProductDetailBinding
 import com.example.gogreen.roomdb.AppDatabase
@@ -30,6 +32,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun getProductDetails(proId:String?) {
 
         Firebase.firestore.collection("Products")
@@ -40,13 +43,13 @@ class ProductDetailActivity : AppCompatActivity() {
                 val productDesc = it.getString("productDescription")
 
                 binding.textView7.text = name
-                binding.textView8.text = productSp
+                binding.textView8.text = "₹$productSp"
                 binding.textView9.text = productDesc
 
 
-                val slidList = ArrayList<SlideModel>()
+                val slidList : ArrayList<ImageSlidesModel> = ArrayList()
                 for (data in list) {
-                    slidList.add(SlideModel(data, ScaleTypes.CENTER_CROP))
+                    slidList.add(ImageSlidesModel(data, ImageScaleType.CENTER_CROP))
                 }
                 cartAction(proId, name, productSp, it.getString("productCoverImg"))
                 binding.imageSlider.setImageList(slidList)

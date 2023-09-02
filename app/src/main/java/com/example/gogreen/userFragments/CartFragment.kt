@@ -13,26 +13,20 @@ import com.example.gogreen.userAdapter.CartAdapter
 
 
 class CartFragment : Fragment() {
-    private lateinit var binding:FragmentCartBinding
+    private lateinit var binding: FragmentCartBinding
     private lateinit var list: ArrayList<String>
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCartBinding.inflate(layoutInflater)
-       /* val preferences = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
-        val editor = preferences.edit()
-        editor.putBoolean("isCart",false)
-        editor.apply()*/
 
         val dao = AppDatabase.getInstance(requireContext()).productDao()
 
-
         list = ArrayList()
 
-        dao.getAllProducts().observe(requireActivity()) {
+        dao.getAllProducts().observe(viewLifecycleOwner) {
             binding.cartRecycler.adapter = CartAdapter(requireContext(), it)
 
             list.clear()
@@ -40,11 +34,9 @@ class CartFragment : Fragment() {
                 list.add(data.productId)
             }
 
-           // totalCost(it)
+            // totalCost(it)
         }
 
-        return (binding.root)
+        return binding.root
     }
-
-
 }
