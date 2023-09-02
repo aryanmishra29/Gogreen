@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gogreen.R
 import com.example.gogreen.databinding.FragmentCartBinding
+import com.example.gogreen.roomdb.AppDatabase
+import com.example.gogreen.userAdapter.CartAdapter
 
 
 class CartFragment : Fragment() {
     private lateinit var binding:FragmentCartBinding
+    private lateinit var list: ArrayList<String>
 
 
     override fun onCreateView(
@@ -19,10 +22,27 @@ class CartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCartBinding.inflate(layoutInflater)
-        val preferences = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
+       /* val preferences = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
         val editor = preferences.edit()
         editor.putBoolean("isCart",false)
-        editor.apply()
+        editor.apply()*/
+
+        val dao = AppDatabase.getInstance(requireContext()).productDao()
+
+
+        list = ArrayList()
+
+        dao.getAllProducts().observe(requireActivity()) {
+            binding.cartRecycler.adapter = CartAdapter(requireContext(), it)
+
+            list.clear()
+            for (data in it) {
+                list.add(data.productId)
+            }
+
+           // totalCost(it)
+        }
+
         return (binding.root)
     }
 
