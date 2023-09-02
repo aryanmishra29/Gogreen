@@ -20,6 +20,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
+import java.util.Locale.Category
 import kotlin.collections.ArrayList
 
 
@@ -118,7 +119,7 @@ class Category_adminFragment : Fragment() {
 
     private fun storeData(categry:String, Url:String) {
         val db = Firebase.firestore
-        val data = Category(categry, Url)
+        val data = com.example.gogreen.Category(categry, Url)
         db.collection("cate").add(data)
             .addOnSuccessListener {
                 dialog.dismiss()
