@@ -106,8 +106,9 @@
                         android:layout_height="200dp"
                         app:ais_auto_sliding="true"
                         android:id="@+id/slider"
-                        app:ais_dots_visible="true"
-                        app:ais_time_interval="2000"
+                        app:ais_dots_visible="false"
+                        app:ais_slide_delay="1000"
+                        app:ais_time_interval="4000"
                         app:ais_title_background="@color/colorSecondary"/>
 
                 </LinearLayout>

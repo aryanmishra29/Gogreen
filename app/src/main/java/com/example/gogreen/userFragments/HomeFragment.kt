@@ -33,9 +33,9 @@ class HomeFragment : Fragment() {
         val autoImageSlider = binding.slider
         val autoImageList : ArrayList<ImageSlidesModel> = ArrayList()
 
-        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/237/200/300", "First image"))
+        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/237/200/300", ""))
         autoImageList.add(ImageSlidesModel("https://picsum.photos/id/238/200/300", ""))
-        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/239/200/300", "Third image"))
+        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/239/200/300", "e"))
 
         autoImageSlider.setImageList(autoImageList, ImageScaleType.FIT)
 
