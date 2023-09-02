@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.gogreen.User_Activity.ProductDetailActivity
 import com.example.gogreen.databinding.LayoutProductItemBinding
 import com.example.gogreen.user_Model.addProductuserModel
 
@@ -31,11 +32,11 @@ class ProductuserAdapter(val context:Context, val list: ArrayList<addProductuser
         holder.binding.button.text = data.productPrice
        // holder.binding.button2.text = data.p
 
-      /*  holder.itemView.setOnClickListener {
-            val intent = Intent(context, ProductDetailsActivity::class.java)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, ProductDetailActivity::class.java)
             intent.putExtra("id", list[position].productId)
             context.startActivity(intent)
-        }*/
+        }
     }
 
     override fun getItemCount(): Int {

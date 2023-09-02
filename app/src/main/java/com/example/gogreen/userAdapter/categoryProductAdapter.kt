@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.gogreen.User_Activity.ProductDetailActivity
 import com.example.gogreen.databinding.ItemCategoryProductUserBinding
 import com.example.gogreen.user_Model.addProductuserModel
 import org.checkerframework.checker.units.qual.C
@@ -33,9 +34,9 @@ class categoryProductAdapter(val context: Context, val list: ArrayList<addProduc
         holder.binding.textView6.text = list[position].productPrice
 
         holder.itemView.setOnClickListener {
-           /* val intent = Intent(context, ProductDetailsActivity::class.java)
+            val intent = Intent(context, ProductDetailActivity::class.java)
             intent.putExtra("id", list[position].productId)
-            context.startActivity(intent)*/
+            context.startActivity(intent)
         }
 
 

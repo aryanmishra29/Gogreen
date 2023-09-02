@@ -81,4 +81,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3")
 
     implementation 'com.github.dangiashish:Auto-Image-Slider:1.0.2'
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 }
