@@ -14,6 +14,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gogreen.Login_Register.LoginScreen
 import com.example.gogreen.Login_Register.User
+import com.example.gogreen.User_Activity.UsersActivity
+
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -69,7 +72,7 @@ class RegisterScreen : AppCompatActivity() {
         usersRef = database.getReference("users")
 
         submitButton.setOnClickListener {
-            val intent = Intent(this@RegisterScreen, UsersActivity::class.java)
+            val intent = Intent(this@RegisterScreen,UsersActivity::class.java)
             startActivity(intent)
             this.finish()
 
@@ -108,7 +111,7 @@ class RegisterScreen : AppCompatActivity() {
                                     if (databaseTask.isSuccessful) {
                                         // Data was written successfully
                                         Log.d("Database", "Data written successfully")
-                                        val intent = Intent(this@RegisterScreen, LoginScreen::class.java)
+                                        val intent = Intent(this@RegisterScreen,LoginScreen::class.java)
                                         startActivity(intent)
                                         this.finish()
                                     } else {

@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.gogreen.user_Activity.ProductDetailActivity
+
 import com.example.gogreen.databinding.LayoutProductItemBinding
+import com.example.gogreen.user_Activity.ProductDetailActivity
 import com.example.gogreen.user_Model.addProductuserModel
 
 
