@@ -11,7 +11,7 @@ import com.example.gogreen.databinding.FragmentCartBinding
 import com.example.gogreen.roomdb.AppDatabase
 import com.example.gogreen.roomdb.ProductModel
 import com.example.gogreen.userAdapter.CartAdapter
-import com.example.gogreen.User_Activity.checkoutActivity
+
 
 
 class CartFragment : Fragment() {
@@ -57,12 +57,12 @@ class CartFragment : Fragment() {
         binding.textView13.text = "Total Cost : $total"
 
         binding.checkout.setOnClickListener {
-            val intent = Intent(context, checkoutActivity::class.java)
+            /*val intent = Intent(context, checkoutActivity::class.java)
             val b = Bundle()
             b.putStringArrayList("productIds", list)
             b.putString("totalCost", total.toString())
             intent.putExtras(b)
-            startActivity(intent)
+            startActivity(intent)*/
 
 
 
