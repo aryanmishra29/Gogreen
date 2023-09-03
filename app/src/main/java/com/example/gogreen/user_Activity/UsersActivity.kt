@@ -1,9 +1,8 @@
-package com.example.gogreen.User_Activity
+package com.example.gogreen.user_Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 
 
 import com.example.gogreen.R

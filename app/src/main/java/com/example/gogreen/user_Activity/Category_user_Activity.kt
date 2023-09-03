@@ -1,8 +1,7 @@
-package com.example.gogreen.User_Activity
+package com.example.gogreen.user_Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gogreen.R
 import com.example.gogreen.userAdapter.ProductuserAdapter
