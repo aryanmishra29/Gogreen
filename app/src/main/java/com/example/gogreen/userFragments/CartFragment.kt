@@ -6,9 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import com.example.gogreen.R
-import com.example.gogreen.User_Activity.AddressActivity
 
 import com.example.gogreen.databinding.FragmentCartBinding
 import com.example.gogreen.roomdb.AppDatabase
