@@ -30,6 +30,7 @@ class ProductDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
     }
 
     @SuppressLint("SetTextI18n")
