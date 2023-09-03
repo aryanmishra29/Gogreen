@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.*
 import com.example.gogreen.R
 
-import com.example.gogreen.user_Activity.UsersActivity
+import com.example.gogreen.User_Activity.UsersActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

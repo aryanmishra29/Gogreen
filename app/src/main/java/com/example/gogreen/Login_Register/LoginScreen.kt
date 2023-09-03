@@ -3,9 +3,7 @@
         import android.content.Intent
         import androidx.appcompat.app.AppCompatActivity
         import android.os.Bundle
-        import android.text.InputType
         import android.util.Log
-        import android.view.View
         import android.widget.Button
         import android.widget.EditText
         import android.widget.ImageView
@@ -13,7 +11,8 @@
         import android.widget.Toast
         import com.example.gogreen.AdminActivity
         import com.example.gogreen.R
-        import com.example.gogreen.user_Activity.UsersActivity
+        import com.example.gogreen.User_Activity.UsersActivity
+
 
         import com.google.firebase.auth.FirebaseAuth
         import com.google.firebase.database.DataSnapshot

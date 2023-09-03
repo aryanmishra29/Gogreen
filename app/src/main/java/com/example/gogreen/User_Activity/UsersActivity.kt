@@ -1,4 +1,4 @@
-package com.example.gogreen.user_Activity
+package com.example.gogreen.User_Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
