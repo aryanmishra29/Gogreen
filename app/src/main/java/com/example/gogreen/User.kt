@@ -7,5 +7,5 @@ data class User(
     val username: String,
     val gender: String,
     val password: String,
-    val status: Boolean // Add this field
+    val status: Boolean
 )
