@@ -28,6 +28,7 @@ class UsersActivity : AppCompatActivity() {
        /* val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view)
         val navController = navHostFragment!!.findNavController()**/
 
+
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
         // Set the HomeFragment as the initial fragment
@@ -41,7 +42,10 @@ class UsersActivity : AppCompatActivity() {
             }
             true
         }
+
     }
+
+
 
     private fun setCurrentFragment(fragment:Fragment) {
         supportFragmentManager.beginTransaction().apply {
