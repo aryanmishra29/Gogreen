@@ -1,12 +1,17 @@
 package com.example.gogreen
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.gogreen.Login_Register.LoginScreen
 import com.example.gogreen.Login_Register.User
 import com.example.gogreen.user_Activity.UsersActivity
@@ -19,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase
 class RegisterScreen : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
-   // private lateinit var addressEditText: EditText
+    private lateinit var addressEditText: EditText
     private lateinit var usernameEditText: EditText
     private lateinit var gender: String
     private lateinit var passwordEditText: EditText
@@ -32,10 +37,8 @@ class RegisterScreen : AppCompatActivity() {
         setContentView(R.layout.activity_register_screen)
         nameEditText = findViewById(R.id.fullNameEditText)
         emailEditText = findViewById(R.id.registerEmailEditText)
-       // addressEditText = findViewById(R.id.)
+        addressEditText = findViewById(R.id.addressEditText)
         usernameEditText = findViewById(R.id.registerUsernameEditText)
-        gender = ""
-//        gender = findViewById(R.id.spinnerGender)
         passwordEditText = findViewById(R.id.registerPasswordEditText)
         confirmEditText = findViewById(R.id.confirmPasswordEditText)
         val submitButton: Button = findViewById(R.id.registerButton)
@@ -75,7 +78,7 @@ class RegisterScreen : AppCompatActivity() {
 
             val name = nameEditText.text.toString()
             val email = emailEditText.text.toString()
-            //val address = addressEditText.text.toString()
+            val address = addressEditText.text.toString()
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
             val confirmPassword = confirmEditText.text.toString()
@@ -100,7 +103,7 @@ class RegisterScreen : AppCompatActivity() {
                         val user = auth.currentUser
                         val userId = user?.uid
                         if (userId != null) {
-                            val userData = User(name, email, "", username, gender, password, false)
+                            val userData = User(name, email, address, username, gender, password, false)
 
                             // Set user data in the Realtime Database
                             usersRef.child(userId).setValue(userData)
