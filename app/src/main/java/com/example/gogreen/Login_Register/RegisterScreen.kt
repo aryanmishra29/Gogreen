@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.*
 import com.example.gogreen.Login_Register.LoginScreen
 import com.example.gogreen.Login_Register.User
-import com.example.gogreen.User_Activity.UsersActivity
+import com.example.gogreen.user_Activity.UsersActivity
 
 
 import com.google.firebase.auth.FirebaseAuth

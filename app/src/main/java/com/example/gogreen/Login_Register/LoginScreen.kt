@@ -4,15 +4,11 @@
         import androidx.appcompat.app.AppCompatActivity
         import android.os.Bundle
         import android.util.Log
-        import android.widget.Button
-        import android.widget.EditText
-        import android.widget.ImageView
-        import android.widget.TextView
-        import android.widget.Toast
+        import android.widget.*
         import com.example.gogreen.AdminActivity
         import com.example.gogreen.R
         import com.example.gogreen.RegisterScreen
-        import com.example.gogreen.User_Activity.UsersActivity
+        import com.example.gogreen.user_Activity.UsersActivity
 
 
         import com.google.firebase.auth.FirebaseAuth
@@ -22,11 +18,11 @@
         import com.google.firebase.database.ValueEventListener
 
         class   LoginScreen : AppCompatActivity() {
-            private lateinit var usernameEditText: EditText
-            private lateinit var passwordEditText: EditText
-            private lateinit var passwordToggle: ImageView
+            private lateinit var usernameEditText:EditText
+            private lateinit var passwordEditText:EditText
+            private lateinit var passwordToggle:ImageView
 
-            override fun onCreate(savedInstanceState: Bundle?) {
+            override fun onCreate(savedInstanceState:Bundle?) {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_login_screen)
 
@@ -41,7 +37,9 @@
 
 
                 loginButton.setOnClickListener {
-                      val username = usernameEditText.text.toString()
+
+
+                    val username = usernameEditText.text.toString()
                     val password = passwordEditText.text.toString()
 
                     if (username.isNotEmpty() && password.isNotEmpty()) {
@@ -57,7 +55,6 @@
                     finish()
                 }
             }
-
 
 
             private fun isValidLogin(username: String, password: String) {
@@ -80,7 +77,7 @@
 
                                 databaseReference.addListenerForSingleValueEvent(object :
                                     ValueEventListener {
-                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                    override fun onDataChange(dataSnapshot:DataSnapshot) {
                                         if (dataSnapshot.exists()) {
                                             val isAdmin = dataSnapshot.child("status")
                                                 .getValue(Boolean::class.java)
@@ -108,7 +105,7 @@
                                         }
                                     }
 
-                                    override fun onCancelled(databaseError: DatabaseError) {
+                                    override fun onCancelled(databaseError:DatabaseError) {
                                         Log.e(
                                             "FirebaseDatabase",
                                             "Error fetching user data: ${databaseError.message}"
