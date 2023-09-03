@@ -2,12 +2,13 @@ package com.example.gogreen.user_Activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.codebyashish.autoimageslider.Enums.ImageScaleType
 import com.codebyashish.autoimageslider.Models.ImageSlidesModel
+import com.example.gogreen.UsersActivity
 import com.example.gogreen.databinding.ActivityProductDetailBinding
 import com.example.gogreen.roomdb.AppDatabase
 import com.example.gogreen.roomdb.ProductDao

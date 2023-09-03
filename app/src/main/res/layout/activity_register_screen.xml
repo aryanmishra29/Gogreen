@@ -44,20 +44,18 @@
     <Spinner
         android:id="@+id/spinnerGender"
         android:layout_width="0dp"
+        android:layout_height="70dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
-        android:layout_height="70dp"
+        android:elevation="8dp"
         android:gravity="center"
         android:maxLines="1"
         android:padding="4dp"
-        android:elevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="411dp"
-        app:layout_constraintTop_toBottomOf="@+id/registerEmailEditText"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/registerUsernameEditText" />
 
     <com.google.android.material.textfield.MaterialAutoCompleteTextView
         android:id="@+id/fullNameEditText"
@@ -81,6 +79,29 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appNameTextView" />
+    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+        android:id="@+id/addressEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_bg"
+        android:elevation="8dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:hint="Address"
+        android:drawableLeft="@drawable/ic_home"
+        android:paddingLeft="8dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="#72000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerGender" />
+
 
     <com.google.android.material.textfield.MaterialAutoCompleteTextView
         android:id="@+id/registerUsernameEditText"
@@ -103,7 +124,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullNameEditText" />
+        app:layout_constraintTop_toBottomOf="@id/registerEmailEditText"
+        />
 
     <com.google.android.material.textfield.MaterialAutoCompleteTextView
         android:id="@+id/registerEmailEditText"
@@ -127,7 +149,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerUsernameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/fullNameEditText"
+       />
 
 
 
@@ -153,7 +176,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerGender" />
+        app:layout_constraintTop_toBottomOf="@+id/addressEditText" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerButton"
