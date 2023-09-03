@@ -4,24 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#198BE6"
-    android:gravity="center"
-    tools:context=".Login_Register.SplashScreen">
+    android:background="@color/colorSecondary"
+    tools:context=".user_Activity.Category_user_Activity">
 
-    <ImageView
-        android:id="@+id/logo"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:elevation="50dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/app_logo"
+        tools:listitem="@layout/item_category_product_user"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451"
-        tools:ignore="ImageContrastCheck"
-        android:importantForAccessibility="no" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

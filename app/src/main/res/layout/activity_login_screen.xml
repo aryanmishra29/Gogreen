@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ebdcca"
-    tools:context=".LoginScreen">
+    android:gravity="center"
+    tools:context=".Login_Register.LoginScreen">
 
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="120dp"
         android:elevation="8dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="@string/welcome_to"
@@ -29,7 +30,7 @@
         android:id="@+id/appNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="144dp"
         android:elevation="8dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="@string/gogreen"
@@ -45,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="280dp"
         android:layout_marginEnd="32dp"
         android:textColorHint="#72000000"
         android:background="@drawable/edit_text_bg"
@@ -83,19 +84,20 @@
         android:paddingBottom="16dp"
         android:paddingEnd="16dp"
         android:paddingStart="8dp"
-        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameEditText"
         tools:ignore="VisualLintTextFieldSize" />
 
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="122dp"
         android:layout_marginEnd="64dp"
         android:background="@drawable/gradient_button"
         android:elevation="12dp"

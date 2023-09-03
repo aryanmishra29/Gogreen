@@ -7,6 +7,7 @@
     android:background="@color/colorSecondary"
     tools:context=".adminFragments.Category_adminFragment">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -16,13 +17,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125"
+        app:layout_constraintVertical_bias="0.096"
         app:srcCompat="@drawable/vector"
         tools:ignore="ContentDescription" />
 
-
-
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+    <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/categry"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Categry name"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:textColorHint="#72000000"
             android:fontFamily="@font/montserrat_semibold"
             android:padding="10dp"
             android:background="@drawable/edit_text_bg"
@@ -47,6 +47,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="112dp"
         android:text="Upload"
+        android:layout_marginBottom="20dp"
         android:textSize="20sp"
         android:fontFamily="@font/montserrat_semibold"
         android:padding="10dp"

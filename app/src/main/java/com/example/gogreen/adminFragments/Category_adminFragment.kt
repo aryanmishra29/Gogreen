@@ -12,16 +12,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.gogreen.Category
 import com.example.gogreen.R
 import com.example.gogreen.admin_Adapter.CategoryAdapter
 import com.example.gogreen.admin_Model.category_Model
 import com.example.gogreen.databinding.FragmentCategoryAdminBinding
-import com.google.android.play.core.integrity.e
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
+import java.util.Locale.Category
 import kotlin.collections.ArrayList
 
 
@@ -120,7 +119,7 @@ class Category_adminFragment : Fragment() {
 
     private fun storeData(categry:String, Url:String) {
         val db = Firebase.firestore
-        val data = Category(categry, Url)
+        val data = com.example.gogreen.Category(categry, Url)
         db.collection("cate").add(data)
             .addOnSuccessListener {
                 dialog.dismiss()

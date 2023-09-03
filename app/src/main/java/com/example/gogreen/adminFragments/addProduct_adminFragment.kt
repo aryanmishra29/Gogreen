@@ -14,16 +14,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.example.gogreen.Category
 import com.example.gogreen.R
-import com.example.gogreen.admin_Adapter.CategoryAdapter
 import com.example.gogreen.admin_Adapter.addProductImageAdapter
 import com.example.gogreen.admin_Model.addProductModel
 import com.example.gogreen.admin_Model.category_Model
 import com.example.gogreen.databinding.FragmentAddProductAdminBinding
-import com.example.gogreen.databinding.FragmentProductAdminBinding
-import com.example.gogreen.databinding.ImageItemBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -103,7 +98,7 @@ class addProduct_adminFragment : Fragment() {
        }else if (coverImage== null){
            Toast.makeText(requireContext(),"Please select cover image",Toast.LENGTH_SHORT).show()
        }else if (list.size<1){
-           Toast.makeText(requireContext(),"please relect product images",Toast.LENGTH_SHORT).show()
+           Toast.makeText(requireContext(),"please select product images",Toast.LENGTH_SHORT).show()
        }else{
            uploadImage()
        }
@@ -159,16 +154,16 @@ class addProduct_adminFragment : Fragment() {
 
     private fun storeData() {
         val db = Firebase.firestore.collection("Products")
-                val key = db.id
+                val key = db.document().id
 
-               val data = addProductModel(
+                  val data = addProductModel(
                  binding.Productname.text.toString(),
                  binding.Productdesc.text.toString(),
-                 coverImgUrl.toString(),
-                 categoryList[binding.addProductDropdown.selectedItemPosition],
-                 key,
-                 binding.Productprice.text.toString(),
-                 listImages
+                   coverImgUrl.toString(),
+                   categoryList[binding.addProductDropdown.selectedItemPosition],
+                     key,
+                   binding.Productprice.text.toString(),
+                   listImages
                )
                  db.document(key).set(data).addOnSuccessListener {
                 dialog.dismiss()
