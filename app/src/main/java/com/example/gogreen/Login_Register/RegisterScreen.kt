@@ -7,6 +7,8 @@ import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.*
+import com.example.gogreen.Login_Register.LoginScreen
+import com.example.gogreen.Login_Register.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

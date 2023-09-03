@@ -34,13 +34,13 @@ class checkoutActivity : AppCompatActivity() , PaymentResultListener {
 
     }
 
-    override fun onPaymentSuccess(p0:String?) {
+     private fun onPaymentSuccess(p0:String?) {
         Toast.makeText(this, "Payment Success", Toast.LENGTH_SHORT).show()
 
 
     }
 
-    override fun onPaymentError(p0:Int, p1:String?) {
+    private fun onPaymentError(p0:Int, p1:String?) {
         Toast.makeText(this, "Payment error", Toast.LENGTH_SHORT).show()
 
     }
