@@ -1,33 +1,21 @@
-package com.example.gogreen.User_Activity
+package com.example.gogreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-
-
-import com.example.gogreen.R
 import com.example.gogreen.userFragments.CartFragment
 import com.example.gogreen.userFragments.HomeFragment
 import com.example.gogreen.userFragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-@Suppress("DEPRECATION")
+//@Suppress("DEPRECATION")
 class UsersActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val cartFragment = CartFragment()
     private val profileFragment = ProfileFragment()
-
-
-
-    override fun onCreate(savedInstanceState:Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users_activity)
-
-
-       /* val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view)
-        val navController = navHostFragment!!.findNavController()**/
-
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
@@ -36,18 +24,15 @@ class UsersActivity : AppCompatActivity() {
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home->setCurrentFragment(homeFragment)
-                R.id.nav_cart->setCurrentFragment(cartFragment)
-                R.id.nav_profile->setCurrentFragment(profileFragment)
+                R.id.nav_home -> setCurrentFragment(homeFragment)
+                R.id.nav_cart -> setCurrentFragment(cartFragment)
+                R.id.nav_profile -> setCurrentFragment(profileFragment)
             }
             true
         }
-
     }
 
-
-
-    private fun setCurrentFragment(fragment:Fragment) {
+    private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragmentContainer, fragment)
             commit()
