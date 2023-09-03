@@ -8,7 +8,8 @@
         import com.example.gogreen.AdminActivity
         import com.example.gogreen.R
         import com.example.gogreen.RegisterScreen
-        import com.example.gogreen.user_Activity.UsersActivity
+        import com.example.gogreen.UsersActivity
+
 
 
         import com.google.firebase.auth.FirebaseAuth
@@ -37,6 +38,8 @@
 
 
                 loginButton.setOnClickListener {
+
+
 
 
                     val username = usernameEditText.text.toString()
