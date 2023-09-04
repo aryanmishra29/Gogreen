@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.*
 import com.example.gogreen.AdminActivity
 import com.example.gogreen.R
-import com.example.gogreen.RegisterScreen
+import com.example.gogreen.Login_Register.RegisterScreen
 import com.example.gogreen.UsersActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
