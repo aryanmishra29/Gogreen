@@ -19,9 +19,10 @@ class Product_adminFragment : Fragment() {
         savedInstanceState:Bundle?,
     ):View? {
         binding = FragmentProductAdminBinding.inflate(layoutInflater)
-        binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_product_adminFragment_to_addProduct_adminFragment)
-        }
+     //   binding.floatingActionButton.setOnClickListener {
+
+        //    findNavController().navigate(R.id.action_product_adminFragment_to_addProduct_adminFragment)
+       // }
 
         return binding.root
     }
