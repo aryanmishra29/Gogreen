@@ -1,10 +1,12 @@
 package com.example.gogreen.userFragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -43,10 +45,17 @@ class HomeFragment : Fragment() {
 
         val autoImageSlider = binding.slider
         val autoImageList : ArrayList<ImageSlidesModel> = ArrayList()
+        val profile = view?.findViewById<ImageView>(R.id.profile)
 
         autoImageList.add(ImageSlidesModel("https://picsum.photos/id/237/200/300", ""))
         autoImageList.add(ImageSlidesModel("https://picsum.photos/id/238/200/300", ""))
-        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/239/200/300", "e"))
+        autoImageList.add(ImageSlidesModel("https://picsum.photos/id/239/200/300", ""))
+        profile?.setOnClickListener{
+            val ProfileFragment = ProfileFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.homeFragment, ProfileFragment)
+            transaction.commit()
+        }
 
         autoImageSlider.setImageList(autoImageList, ImageScaleType.CENTER_CROP)
 
