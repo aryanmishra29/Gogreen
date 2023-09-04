@@ -62,6 +62,9 @@
             android:name=".Login_Register.LoginScreen"
             android:exported="true" />
         <activity
+            android:name=".RegisterScreen"
+            android:exported="true" />
+        <activity
             android:name=".AdminActivity"
             android:exported="true" />
 

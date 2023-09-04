@@ -25,6 +25,9 @@ class LoginScreen : AppCompatActivity() {
         setContentView(R.layout.activity_login_screen)
 
         val clickHereTextView = findViewById<TextView>(R.id.createAccountTextView)
+        clickHereTextView.setOnClickListener {
+            startActivity(Intent(this, RegisterScreen::class.java))
+        }
         usernameEditText = findViewById(R.id.usernameEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
         val loginButton: Button = findViewById(R.id.loginButton)
@@ -40,6 +43,7 @@ class LoginScreen : AppCompatActivity() {
             }
         }
     }
+
 
     private fun isValidLogin(username: String, password: String) {
         val auth = FirebaseAuth.getInstance()
@@ -66,8 +70,8 @@ class LoginScreen : AppCompatActivity() {
                                     val isAdmin = dataSnapshot.child("status")
                                         .getValue(Boolean::class.java)
 
-                                    if (isAdmin == true) {
-                                        // Redirect based on the status value
+                                    if (isAdmin != null && isAdmin==true
+                                    ) {
                                         if (isAdmin) {
                                             // User is an admin, go to AdminActivity
                                             val intent = Intent(
