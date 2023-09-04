@@ -18,7 +18,7 @@ class UsersActivity : AppCompatActivity() {
 
 
             super.onCreate(savedInstanceState)
-        this.binding = ActivityUsersActivityBinding.inflate(layoutInflater)
+            this.binding = ActivityUsersActivityBinding.inflate(layoutInflater)
 
             setContentView(binding.root)
 
@@ -28,7 +28,7 @@ class UsersActivity : AppCompatActivity() {
             // Set the HomeFragment as the initial fragment
             setCurrentFragment(homeFragment)
 
-            bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            bottomNavigationView.setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.nav_home->setCurrentFragment(homeFragment)
                     R.id.nav_cart->setCurrentFragment(cartFragment)

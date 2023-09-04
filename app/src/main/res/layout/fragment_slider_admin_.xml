@@ -8,25 +8,26 @@
     tools:context=".adminFragments.slider_admin_Fragment">
 
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:layout_marginTop="160sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125"
+        app:layout_constraintVertical_bias="0.364"
         app:srcCompat="@drawable/vector" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20sp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/gradient_button"
         android:fontFamily="@font/montserrat_semibold"
         android:gravity="center"
