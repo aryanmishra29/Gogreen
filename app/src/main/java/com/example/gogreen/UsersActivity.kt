@@ -19,9 +19,12 @@ class UsersActivity : AppCompatActivity() {
 
 
             super.onCreate(savedInstanceState)
+        binding = ActivityUsersActivityBinding.inflate(layoutInflater)
+
             setContentView(binding.root)
 
             val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+
 
             // Set the HomeFragment as the initial fragment
             setCurrentFragment(homeFragment)
