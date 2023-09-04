@@ -31,6 +31,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="200sp"
             android:orientation="vertical" >
 
 
@@ -38,9 +39,10 @@
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/Productname"
                     android:background="@drawable/edit_text_bg"
-                    android:layout_margin="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="15sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60sp"
                     android:textSize="15sp"
                     android:textColorHint="@color/black"
                     android:fontFamily="@font/montserrat_semibold"
@@ -49,19 +51,20 @@
                     tools:ignore="HardcodedText,TouchTargetSizeCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"/>-->
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/Productdesc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_height="60sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/edit_text_bg"
                 android:fontFamily="@font/montserrat_semibold"
-                android:hint="Product desc"
-                android:padding="12dp"
+                android:hint="Product Description"
+                android:padding="10dp"
                 android:textColorHint="@color/black"
                 android:textSize="15sp"
                 tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize" />
@@ -69,8 +72,9 @@
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/Productprice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_height="60sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/edit_text_bg"
                 android:fontFamily="@font/montserrat_semibold"
                 android:hint="Product price"
@@ -83,15 +87,15 @@
             <Spinner
                 android:id="@+id/addProductDropdown"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="68sp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="15dp"
                 android:background="@color/colorSecondaryDark"
                 android:fontFamily="@font/montserrat_semibold"
                 android:minHeight="48dp"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textColorHint="@color/black"
                 android:textSize="15sp" />
 
@@ -99,7 +103,8 @@
                 android:id="@+id/selectcoverimg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20sp"
+                android:layout_marginHorizontal="20sp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/gradient_button"
                 android:fontFamily="@font/montserrat_semibold"
                 android:gravity="center"
@@ -116,13 +121,14 @@
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 android:id="@+id/product_cover_img"
+                android:layout_marginBottom="15dp"
                 tools:ignore="ContentDescription" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/prod_imgButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20sp"
+                android:layout_marginHorizontal="20sp"
                 android:background="@drawable/gradient_button"
                 android:fontFamily="@font/montserrat_semibold"
                 android:gravity="center"
@@ -130,17 +136,16 @@
                 android:text="select image"
                 android:textColor="@color/colorSecondary"
                 android:textSize="20sp"
+                android:layout_marginBottom="15dp"
                 tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/product_img_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:ignore="SpeakableTextPresentCheck"
-
                 tools:listitem="@layout/image_item" />
 
 
@@ -148,7 +153,8 @@
                 android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20sp"
+                android:layout_marginHorizontal="20sp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/gradient_button"
                 android:fontFamily="@font/montserrat_semibold"
                 android:gravity="center"

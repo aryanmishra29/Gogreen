@@ -13,7 +13,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gogreen.R
-import com.example.gogreen.User_Activity.UsersActivity
+import com.example.gogreen.UsersActivity
 
 
 import com.google.firebase.auth.FirebaseAuth
@@ -72,9 +72,9 @@ class RegisterScreen : AppCompatActivity() {
         usersRef = database.getReference("users")
 
         submitButton.setOnClickListener {
-            val intent = Intent(this@RegisterScreen,UsersActivity::class.java)
-            startActivity(intent)
-            this.finish()
+//            val intent = Intent(this@RegisterScreen,LoginScreen::class.java)
+//            startActivity(intent)
+//            this.finish()
 
             val name = nameEditText.text.toString()
             val email = emailEditText.text.toString()
