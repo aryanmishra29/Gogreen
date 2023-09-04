@@ -7,7 +7,6 @@
         import android.widget.*
         import com.example.gogreen.AdminActivity
         import com.example.gogreen.R
-        import com.example.gogreen.RegisterScreen
         import com.example.gogreen.UsersActivity
 
 
@@ -61,8 +60,7 @@
                 val auth = FirebaseAuth.getInstance()
                 if (auth.currentUser != null) {
                     // User is already authenticated, so go to UserActivity
-                    startActivity(Intent(this, UsersActivity::class.java))
-                    finish()
+
                 }
 
                 auth.signInWithEmailAndPassword(username, password)
