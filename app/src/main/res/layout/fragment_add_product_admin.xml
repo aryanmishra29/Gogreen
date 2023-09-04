@@ -100,10 +100,10 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:gravity="center"
                 android:padding="5sp"
-                android:text="select cover image"
-                android:textColor="@color/username"
-                android:textSize="20sp"
-                tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
+                android:text="Select Cover Image"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:textSize="20sp"/>
 
             <ImageView
                 android:id="@+id/product_cover_img"
@@ -125,16 +125,17 @@
                 android:id="@+id/prod_imgButton"
                 android:layout_width="wrap_content"
                 android:layout_height="45sp"
+                android:fontFamily="@font/montserrat_semibold"
                 android:layout_marginHorizontal="20sp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/button_select"
-                android:fontFamily="@font/montserrat_semibold"
                 android:gravity="center"
                 android:padding="10sp"
-                android:text="select image"
-                android:textColor="@color/username"
-                android:textSize="20sp"
-                tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
+                android:text="Select Image"
+                android:textAllCaps="false"
+
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
 
 
             <androidx.recyclerview.widget.RecyclerView
