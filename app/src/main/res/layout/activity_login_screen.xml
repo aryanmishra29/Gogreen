@@ -79,6 +79,7 @@
         android:elevation="8dp"
         android:fontFamily="@font/montserrat_semibold"
         android:hint="@string/password"
+        android:inputType="textPassword"
         android:drawableStart="@drawable/lock"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"

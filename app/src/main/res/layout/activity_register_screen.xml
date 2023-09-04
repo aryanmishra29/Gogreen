@@ -191,6 +191,7 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:text="Register"
+        android:inputType="textPassword"
         android:textColor="@color/colorSecondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
