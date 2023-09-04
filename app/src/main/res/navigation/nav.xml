@@ -13,12 +13,13 @@
         <action
             android:id="@+id/action_home_adminFragment_to_category_adminFragment"
             app:destination="@id/category_adminFragment" />
-        <action
-            android:id="@+id/action_home_adminFragment_to_product_adminFragment"
-            app:destination="@id/product_adminFragment" />
+
         <action
             android:id="@+id/action_home_adminFragment_to_slider_admin_Fragment"
             app:destination="@id/slider_admin_Fragment" />
+        <action
+            android:id="@+id/action_home_adminFragment_to_addProduct_adminFragment"
+            app:destination="@id/addProduct_adminFragment" />
     </fragment>
     <fragment
         android:id="@+id/category_adminFragment"
@@ -30,9 +31,7 @@
         android:name="com.example.gogreen.adminFragments.Product_adminFragment"
         android:label="fragment_product_admin"
         tools:layout="@layout/fragment_product_admin" >
-        <action
-            android:id="@+id/action_product_adminFragment_to_addProduct_adminFragment"
-            app:destination="@id/addProduct_adminFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/addProduct_adminFragment"
