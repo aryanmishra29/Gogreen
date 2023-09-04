@@ -28,6 +28,7 @@
                 setContentView(R.layout.activity_login_screen)
 
 
+
                 val clickHereTextView = findViewById<TextView>(R.id.createAccountTextView)
                 usernameEditText = findViewById(R.id.usernameEditText)
                 passwordEditText = findViewById(R.id.passwordEditText)
@@ -38,11 +39,6 @@
 
 
                 loginButton.setOnClickListener {
-
-
-
-
-
                     val username = usernameEditText.text.toString()
                     val password = passwordEditText.text.toString()
 
