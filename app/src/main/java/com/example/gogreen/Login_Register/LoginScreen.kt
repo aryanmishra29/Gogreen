@@ -47,13 +47,7 @@ class LoginScreen : AppCompatActivity() {
 
     private fun isValidLogin(username: String, password: String) {
         val auth = FirebaseAuth.getInstance()
-//        if (auth.currentUser != null) {
-//            // User is already authenticated, so go to UserActivity
-//            startActivity(Intent(this, UsersActivity::class.java))
-//            finish()
-//        }
-
-        auth.signInWithEmailAndPassword(username, password)
+auth.signInWithEmailAndPassword(username, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
@@ -73,21 +67,21 @@ class LoginScreen : AppCompatActivity() {
                                     if (isAdmin != null
                                     ) {
                                         if (isAdmin) {
-                                            // User is an admin, go to AdminActivity
+
                                             val intent = Intent(
                                                 this@LoginScreen,
                                                 AdminActivity::class.java
                                             )
                                             startActivity(intent)
                                         } else {
-                                            // User is not an admin, go to UsersActivity
+
                                             val intent = Intent(
                                                 this@LoginScreen,
                                                 UsersActivity::class.java
                                             )
                                             startActivity(intent)
                                         }
-                                        finish() // Finish LoginScreen activity
+                                        finish()
                                     } else {
                                         Log.e("FirebaseDatabase", "Invalid status value")
                                         showToast("Invalid status value")
