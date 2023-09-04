@@ -1,9 +1,8 @@
 package com.example.gogreen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.gogreen.R
 import com.example.gogreen.databinding.ActivityUsersActivityBinding
 import com.example.gogreen.userFragments.CartFragment
 import com.example.gogreen.userFragments.HomeFragment
@@ -19,9 +18,12 @@ class UsersActivity : AppCompatActivity() {
 
 
             super.onCreate(savedInstanceState)
+        this.binding = ActivityUsersActivityBinding.inflate(layoutInflater)
+
             setContentView(binding.root)
 
             val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+
 
             // Set the HomeFragment as the initial fragment
             setCurrentFragment(homeFragment)

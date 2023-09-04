@@ -1,12 +1,12 @@
 package com.example.gogreen.adminFragments
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import com.example.gogreen.R
 import com.example.gogreen.admin_Adapter.addProductImageAdapter
 import com.example.gogreen.admin_Model.addProductModel
@@ -23,7 +24,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class addProduct_adminFragment : Fragment() {
@@ -104,6 +104,7 @@ class addProduct_adminFragment : Fragment() {
        }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun uploadImage() {
         dialog.show()
 
@@ -113,7 +114,7 @@ class addProduct_adminFragment : Fragment() {
         refStorage.putFile(coverImage!!)
             .addOnSuccessListener {
                 it.storage.downloadUrl.addOnSuccessListener { image ->
-                coverImgUrl = image.toString()
+                 coverImgUrl = image.toString()
                     uploadProductImage()
                 }
             }

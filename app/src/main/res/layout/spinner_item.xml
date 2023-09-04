@@ -13,5 +13,4 @@
     android:drawableStart="@drawable/baseline_transgender_24"
     android:fontFamily="@font/montserrat_semibold"
     android:textColor="#72000000"
-    android:textStyle="bold"
     tools:ignore="UseCompatTextViewDrawableXml" />
