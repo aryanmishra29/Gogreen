@@ -1,4 +1,4 @@
-package com.example.gogreen
+package com.example.gogreen.Login_Register
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.gogreen.Login_Register.LoginScreen
-import com.example.gogreen.Login_Register.User
+import com.example.gogreen.R
 import com.example.gogreen.User_Activity.UsersActivity
 
 
@@ -21,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
+@Suppress("NAME_SHADOWING")
 class RegisterScreen : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
@@ -45,8 +45,8 @@ class RegisterScreen : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinnerGender)
 
         val genderOptions = arrayOf("Select the gender","Male", "Female", "Others")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genderOptions)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapter = ArrayAdapter(this, R.layout.spinner_item, genderOptions)
+        adapter.setDropDownViewResource(R.layout.dropdown_item)
         spinner.adapter = adapter
         spinner.setSelection(0)
         var isGenderSelected = false

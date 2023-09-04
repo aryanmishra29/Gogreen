@@ -11,7 +11,6 @@
         import android.widget.Toast
         import com.example.gogreen.AdminActivity
         import com.example.gogreen.R
-        import com.example.gogreen.RegisterScreen
         import com.example.gogreen.User_Activity.UsersActivity
 
 
