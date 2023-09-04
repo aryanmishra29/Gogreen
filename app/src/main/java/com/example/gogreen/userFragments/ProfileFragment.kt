@@ -1,11 +1,16 @@
 package com.example.gogreen.userFragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
+import com.example.gogreen.Login_Register.LoginScreen
 import com.example.gogreen.R
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,8 +23,22 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ProfileFragment : Fragment() {
-    
-    // TODO: Rename and change types of parameters
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val logoutButton = view.findViewById<Button>(R.id.logoutbut)
+        logoutButton.setOnClickListener {
+            logout()
+        }
+    }
+    private fun logout() {
+        val auth = FirebaseAuth.getInstance()
+        auth.signOut()
+        val intent = Intent(requireContext(), LoginScreen::class.java)
+        startActivity(intent)
+        requireActivity().finish()
+        Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
+    }  // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
