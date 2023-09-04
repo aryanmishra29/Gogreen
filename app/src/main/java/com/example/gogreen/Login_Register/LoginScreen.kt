@@ -47,11 +47,11 @@ class LoginScreen : AppCompatActivity() {
 
     private fun isValidLogin(username: String, password: String) {
         val auth = FirebaseAuth.getInstance()
-        if (auth.currentUser != null) {
-            // User is already authenticated, so go to UserActivity
-            startActivity(Intent(this, UsersActivity::class.java))
-            finish()
-        }
+//        if (auth.currentUser != null) {
+//            // User is already authenticated, so go to UserActivity
+//            startActivity(Intent(this, UsersActivity::class.java))
+//            finish()
+//        }
 
         auth.signInWithEmailAndPassword(username, password)
             .addOnCompleteListener(this) { task ->
@@ -70,7 +70,7 @@ class LoginScreen : AppCompatActivity() {
                                     val isAdmin = dataSnapshot.child("status")
                                         .getValue(Boolean::class.java)
 
-                                    if (isAdmin != null && isAdmin==true
+                                    if (isAdmin != null
                                     ) {
                                         if (isAdmin) {
                                             // User is an admin, go to AdminActivity
