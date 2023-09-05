@@ -16,10 +16,12 @@ class checkoutActivity : AppCompatActivity() {
         checkout.setKeyID("rzp_test_YMpRNrRlG6VDeZ")
         try {
             val options = JSONObject()
-            options.put("name", "GoGreen")
-            options.put("description", "Best Ecommerce App")
-            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
-            options.put("theme.color", "#673AB7")
+            options.put("name", "Go Green")
+            options.put("description", "Best Ecommerce App For Green Products")
+           // options.put("image", "https://drive.google.com/file/d/1U1JuIS_Mf32wYdUjRytvAG8gy8IlspwK/view?usp=drivesdk")
+           options.put("image", "https://i.pinimg.com/originals/22/85/63/2285638720d5a004208fb38664aaf4ab.png")
+
+            options.put("theme.color", "#BD9B72")
             options.put("currency", "BDT")
             //  options.put("amount", (price!!.toInt() * 100)) //pass amount in currency subunits
             options.put("prefill.email", "bhoomiag67890@gmail.com.com")
